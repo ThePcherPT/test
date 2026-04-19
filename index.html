@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할 일 관리 앱</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>할 일 관리 앱</h1>
+        <p>오늘 할 일을 기록하고 완료해보세요.</p>
+      </header>
+
+      <section class="input-area" aria-label="할 일 입력 영역">
+        <input id="todo-input" type="text" placeholder="할 일을 입력하세요" maxlength="120" />
+        <button id="add-btn" type="button">추가</button>
+      </section>
+
+      <section class="controls" aria-label="필터와 동작">
+        <div class="filters" role="tablist" aria-label="할 일 필터">
+          <button class="filter-btn active" data-filter="all" type="button">전체</button>
+          <button class="filter-btn" data-filter="active" type="button">진행중</button>
+          <button class="filter-btn" data-filter="completed" type="button">완료</button>
+        </div>
+        <button id="clear-completed-btn" type="button" class="ghost">완료 항목 삭제</button>
+      </section>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <footer class="status">
+        <span id="remaining-count">남은 할 일: 0</span>
+      </footer>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label>
+          <input class="toggle" type="checkbox" />
+          <span class="todo-text"></span>
+        </label>
+        <button class="delete-btn" type="button" aria-label="삭제">삭제</button>
+      </li>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
